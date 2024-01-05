@@ -16,6 +16,7 @@ papb (lxHead : lxTail) (lyHead : lyTail) = (lxTail, lxHead : lyHead : lyTail)
 papb lx ly = (lx, ly)
 
 rarb :: [lx] -> [lx]
+rarb [] = []
 rarb (lxHead : lxTail) = lxTail ++ [lxHead]
 
 rr :: [lx] -> [ly] -> ([lx], [ly])
