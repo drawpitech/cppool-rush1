@@ -1,3 +1,5 @@
+module Utils where
+
 isSorted :: Ord a => [a] -> Bool
 isSorted list = and $ zipWith (<=) list (tail list)
 

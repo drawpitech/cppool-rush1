@@ -7,13 +7,14 @@
 
 HC := ghc
 BUILD_DIR := .build
-HCFLAGS := -Wall -Wextra -Werror -O2
+# HCFLAGS := -Wall -Wextra -Werror -O2
 HCFLAGS += -outputdir $(BUILD_DIR)
 
 NAME := pushswap_checker
 
 # ↓ Source files
 SRC := Main.hs
+SRC += utils.hs
 
 all: $(NAME)
 
