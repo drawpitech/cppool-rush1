@@ -8,6 +8,7 @@
 module Main where
 
 import System.Environment (getArgs)
+import System.Exit (exitWith, ExitCode(ExitFailure))
 import Utils (isSorted)
 
 getLa :: IO [Int]
@@ -17,7 +18,7 @@ getOpers :: IO [String]
 getOpers = getLine >>= return . words
 
 err :: [Int] -> [Int] -> IO ()
-err la lb = putStr "KO: " >> print (la, lb)
+err la lb = putStr "KO: " >> print (la, lb) >> exitWith (ExitFailure 84)
 
 exit :: [Int] -> [Int] -> IO ()
 exit la [] | isSorted la = putStrLn "OK"
