@@ -20,7 +20,7 @@ all: $(NAME)
 
 .PHONY: all
 
-$(NAME): $(OBJ)
+$(NAME):
 	$(HC) -o $@ $(SRC) $(HCFLAGS)
 
 .PHONY: $(NAME)
