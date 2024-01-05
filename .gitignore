@@ -1,0 +1,20 @@
+# Binaries
+pushswap_checker
+*.out
+
+# Compilation
+.build/
+*.a
+*.hi
+
+# Editors junk
+*~
+\#*#
+*.swp
+*.swo
+
+# Reports
+core.*
+*.log
+*.gcda
+*.gcno
