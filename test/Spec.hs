@@ -1,2 +1,26 @@
+import Utils
+import Test.HUnit
+import qualified System.Exit as Exit
+
+isSorted_test1 :: Test
+isSorted_test1 = TestCase (assertEqual "Should be True..." True (isSorted [2, 3, 4, 5, 6, 8, 10]))
+
+isSorted_test2 :: Test
+isSorted_test2 = TestCase (assertEqual "Should be False..." False (isSorted [2, 3, 4, 7, 5, 8, 10]))
+
+sasb1 :: Test
+sasb1 = TestCase (assertEqual "Should be [1, 2, 3, 4, 5, 6, 7, 8, 10]..." [1, 2, 3, 4, 5, 6, 7, 8, 10] (sasb [2, 1, 3, 4, 5, 6, 7, 8, 10]))
+
+sasb2 :: Test
+sasb2 = TestCase (assertEqual "Should be [4, 2]..." [4, 2] (sasb [2, 4]))
+
+tests :: Test
+tests = TestList [TestLabel "Test 1 on isSorted function: " isSorted_test1,
+    TestLabel "Test 2 on isSorted function: " isSorted_test2,
+    TestLabel "Test 1 on sasb function: " sasb1,
+    TestLabel "Test 2 on sasb function: " sasb2]
+
 main :: IO ()
-main = putStrLn "Test suite not yet implemented"
+main = do
+    result <- runTestTT tests
+    if failures result > 0 then Exit.exitFailure else Exit.exitSuccess

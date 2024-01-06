@@ -31,7 +31,10 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-.PHONY: clean fclean
+tests_run:
+	cabal test
+
+.PHONY: clean fclean tests_run
 
 re: fclean
 	$(MAKE) -C .

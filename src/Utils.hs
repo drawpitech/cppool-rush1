@@ -8,6 +8,7 @@
 module Utils where
 
 isSorted :: Ord a => [a] -> Bool
+isSorted [] = True
 isSorted list = and $ zipWith (<=) list (tail list)
 
 sasb :: [lx] -> [lx]
