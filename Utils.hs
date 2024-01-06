@@ -1,3 +1,10 @@
+{-
+-- EPITECH PROJECT, 2024
+-- rush1
+-- File description:
+-- Utils
+-}
+
 module Utils where
 
 isSorted :: Ord a => [a] -> Bool
