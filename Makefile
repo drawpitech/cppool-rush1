@@ -30,7 +30,9 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
-	- rm -r test/
+	- $(RM) -r test/
+	- $(RM) -r .stack-work
+	- $(RM) -r dist-newstyle
 
 tests_run:
 	stack test --coverage

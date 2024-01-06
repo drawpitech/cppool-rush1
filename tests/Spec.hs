@@ -14,6 +14,9 @@ sasb1 = TestCase (assertEqual "Should be [1, 2, 3, 4, 5, 6, 7, 8, 10]..." [1, 2,
 sasb2 :: Test
 sasb2 = TestCase (assertEqual "Should be [4, 2]..." [4, 2] (sasb [2, 4]))
 
+sc1 :: Test
+sc1 = TestCase (assertEqual "Should be [3,2] [1,4]" ([2,1], [4,3]) (sc [1,2] [3,4]))
+
 rarb1 :: Test
 rarb1 = TestCase (assertEqual "Should be [2, 3, 4, 1]" [2, 3, 4, 1] (rarb [1, 2, 3, 4]))
 
@@ -26,6 +29,12 @@ rrarrb1 = TestCase (assertEqual "Should be [2, 3, 4, 5]" [2, 3, 4, 5] (rrarrb [3
 rrarrb2 :: Test
 rrarrb2 = TestCase (assertEqual "Should be [2, 8, 6, 1]" [2, 8, 6, 1] (rrarrb [8, 6, 1, 2]))
 
+pa1 :: Test
+pa1 = TestCase (assertEqual "Should be [3,1,2] [4]" ([3,1,2], [4]) (pa [1,2] [3,4]))
+
+pb1 :: Test
+pb1 = TestCase (assertEqual "Should be [2] [1,3,4]" ([2], [1,3,4]) (pb [1,2] [3,4]))
+
 tests :: Test
 tests = TestList [TestLabel "Test 1 on isSorted function: " isSorted_test1,
     TestLabel "Test 2 on isSorted function: " isSorted_test2,
@@ -33,7 +42,10 @@ tests = TestList [TestLabel "Test 1 on isSorted function: " isSorted_test1,
     TestLabel "Test 2 on sasb function: " sasb2,
     TestLabel "Test 1 on rarb function: " rarb1,
     TestLabel "Test 2 on rarb function: " rarb2,
-    TestLabel "Test 1 on rrarrb function: " rrarrb1]
+    TestLabel "Test 1 on rrarrb function: " rrarrb1,
+    TestLabel "Test 1 on pa function: " pa1,
+    TestLabel "Test 1 on pb function: " pb1,
+    TestLabel "Test 1 on sc function: " sc1]
 
 main :: IO ()
 main = do
