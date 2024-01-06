@@ -11,9 +11,10 @@ import System.Environment (getArgs)
 import System.Exit (exitWith, ExitCode(ExitFailure))
 
 import Utils (isSorted, sasb, sc, pa, pb, rarb, rr, rrarrb, rrr)
+import Text.Read (readMaybe)
 
-getLa :: IO [Int]
-getLa = getArgs >>= return . map read
+getLa :: IO (Maybe [Int])
+getLa = getArgs >>= return . mapM readMaybe
 
 getOpers :: IO [String]
 getOpers = getLine >>= return . words
@@ -41,8 +42,11 @@ execOper (la, lb) ("rrr":xs) = execOper (rrr la lb) xs
 execOper (la, lb) [] = exit la lb
 execOper _ _ = exitWith (ExitFailure 84)
 
+exec :: Maybe [Int] -> [String] -> IO ()
+exec (Just la) op = execOper (la, []) op
+exec _ _ = exitWith (ExitFailure 84)
+
 main :: IO ()
 main = do op <- getOpers
           la <- getLa
-          execOper (la, lb) op
-       where lb = []
+          exec la op
