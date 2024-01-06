@@ -13,8 +13,8 @@ HCFLAGS += -outputdir $(BUILD_DIR)
 NAME := pushswap_checker
 
 # ↓ Source files
-SRC := Main.hs
-SRC += Utils.hs
+SRC := app/Main.hs
+SRC += src/Utils.hs
 
 all: $(NAME)
 
