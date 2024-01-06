@@ -55,7 +55,7 @@ test-suite Rush01Stack-test
   autogen-modules:
       Paths_Rush01Stack
   hs-source-dirs:
-      test
+      tests
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       Rush01Stack

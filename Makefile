@@ -30,9 +30,12 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	- rm -r test/
 
 tests_run:
-	cabal test
+	stack test --coverage
+	mkdir -p test/coverage/
+	stack hpc report --all --destdir test/coverage/
 
 .PHONY: clean fclean tests_run
 
