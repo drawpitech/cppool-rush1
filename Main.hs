@@ -8,9 +8,9 @@
 module Main where
 
 import System.Environment (getArgs)
-
-import Utils (isSorted, sasb, sc, papb, rarb, rr, rrarrb, rrr)
 import System.Exit (exitWith, ExitCode(ExitFailure))
+
+import Utils (isSorted, sasb, sc, pa, pb, rarb, rr, rrarrb, rrr)
 
 getLa :: IO [Int]
 getLa = getArgs >>= return . map read
@@ -30,8 +30,8 @@ execOper :: ([Int], [Int]) -> [String] -> IO ()
 execOper (la, lb) ("sa":xs) = execOper (sasb la, lb) xs
 execOper (la, lb) ("sb":xs) = execOper (la, sasb lb) xs
 execOper (la, lb) ("sc":xs) = execOper (sc la lb) xs
-execOper (la, lb) ("pa":xs) = execOper (papb lb la) xs
-execOper (la, lb) ("pb":xs) = execOper (papb la lb) xs
+execOper (la, lb) ("pa":xs) = execOper (pa la lb) xs
+execOper (la, lb) ("pb":xs) = execOper (pb la lb) xs
 execOper (la, lb) ("ra":xs) = execOper (rarb la, lb) xs
 execOper (la, lb) ("rb":xs) = execOper (la, rarb lb) xs
 execOper (la, lb) ("rr":xs) = execOper (rr la lb) xs

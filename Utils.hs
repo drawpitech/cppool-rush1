@@ -10,10 +10,13 @@ sasb lx = lx
 sc :: [la] -> [lb] -> ([la], [lb])
 sc la lb = (sasb la, sasb lb)
 
--- Take the first element of l1 and prepend it to l2
-papb :: [lx] -> [lx] -> ([lx], [lx])
-papb (lxHead : lxTail) (lyHead : lyTail) = (lxTail, lxHead : lyHead : lyTail)
-papb lx ly = (lx, ly)
+pa :: [lx] -> [lx] -> ([lx], [lx])
+pa lx (lyHead : lyTail) = (lyHead : lx, lyTail)
+pa ly [] = (ly, [])
+
+pb :: [lx] -> [lx] -> ([lx], [lx])
+pb (lxHead : lxTail) ly = (lxTail, lxHead : ly)
+pb [] ly = ([], ly)
 
 rarb :: [lx] -> [lx]
 rarb [] = []
